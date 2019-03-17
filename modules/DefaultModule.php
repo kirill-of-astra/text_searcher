@@ -8,8 +8,16 @@ class DefaultModule implements ModuleInterface
 {
 
 
-    public function search(FileSourceInterface $source, string $query): bool
+    public function search(FileSourceInterface $source, string $query): ?array
     {
-        // TODO: Implement search() method.
+        $line = 0;
+        $column = 0;
+        while ($eachLine = $source->readLine()) {
+            if (($column = strpos($eachLine, $query)) !== false) {
+                return ['line' => ++$line, 'column' => ++$column]; // to positive numbers
+            }
+            $line++;
+        }
+        return null;
     }
 }

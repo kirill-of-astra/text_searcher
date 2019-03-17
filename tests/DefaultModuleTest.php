@@ -29,8 +29,8 @@ class DefaultModuleTest extends \Codeception\Test\Unit
                 $result = $module->search($fileSource, $query[0]);
                 $this->assertArrayHasKey('line', $result, 'empty result');
                 $this->assertArrayHasKey('column', $result, 'empty result');
-                $this->assertTrue($expected['line'] === $result['line'], 'Incorrect line matches');
-                $this->assertTrue($expected['column'] === $result['column'], 'Incorrect column matches');
+                $this->assertEquals($expected[0],  $result['line'], 'Incorrect line matches '.json_encode($query));
+                $this->assertEquals($expected[1], $result['column'], 'Incorrect column matches '.json_encode($query));
             }else{
                 $this->assertEquals($query[1], $module->search($fileSource, $query[0]));
             }
@@ -41,12 +41,13 @@ class DefaultModuleTest extends \Codeception\Test\Unit
     {
         return $this->make('\\kirillGru\\textSearcher\\fileSources\\LocalFile', [
             'readLine' => function () {
-                static $end = false;
-                if($end === true){
+                static $line = -1;
+                $lines = explode("\r\n", $this->file_data);
+                if($line+1 >= count($lines)){
                     return null;
                 }else{
-                    $end  = true;
-                    return $this->file_data;
+                    $line++;
+                    return $lines[$line];
                 }
             }
         ]);

@@ -5,7 +5,7 @@ namespace kirillGru\textSearcher\fileSources;
 class LocalFile implements FileSourceInterface
 {
 
-    public function readLine(): string
+    public function readLine(): ?string
     {
         // TODO: Implement readLine() method.
     }
