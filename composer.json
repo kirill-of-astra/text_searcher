@@ -1,0 +1,13 @@
+{
+  "autoload": {
+    "psr-4": {
+      "kirillGru\\textSearcher\\": "."
+    }
+  },
+  "require-dev": {
+    "codeception/codeception": "^2.5"
+  },
+  "require": {
+    "symfony/yaml": "^4.2"
+  }
+}
