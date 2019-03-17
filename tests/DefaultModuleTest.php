@@ -27,6 +27,7 @@ class DefaultModuleTest extends \Codeception\Test\Unit
             $expected = $query[1];
             if(is_array($expected)){
                 $result = $module->search($fileSource, $query[0]);
+                $this->assertNotNull($result, "empty result");
                 $this->assertArrayHasKey('line', $result, 'empty result');
                 $this->assertArrayHasKey('column', $result, 'empty result');
                 $this->assertEquals($expected[0],  $result['line'], 'Incorrect line matches '.json_encode($query));

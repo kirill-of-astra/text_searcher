@@ -36,8 +36,8 @@ class Config
     public function getDefaultParams(): array
     {
         return [
-            'max_file_size' => '', // ignore
-            'file_mime_type' => '', // ignore
+            //'max_file_size' => '', // ignore
+            //'file_mime_type' => '', // ignore
             'defaul_module' => 'kirillGru\\textsearcher\\modules\\DefaultModule'
         ];
     }

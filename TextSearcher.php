@@ -75,4 +75,9 @@ class TextSearcher
         }
     }
 
+    public function closeFile()
+    {
+        $this->source->closeFile();
+    }
+
 }
