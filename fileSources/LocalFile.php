@@ -35,7 +35,7 @@ class LocalFile implements FileSourceInterface
     public function getContent(): string
     {
         rewind($this->file);
-        return fread($this->file, filesize($this->path));
+        return fread($this->file, filesize($this->file));
     }
 
     /**
