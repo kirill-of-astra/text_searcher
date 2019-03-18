@@ -24,7 +24,7 @@ composer install
 
 ## Пример использования:
 
-Откроем наш файл с помщью TextSearcher
+Откроем текстовый файл с помощью TextSearcher
 ```
 $file_path = __DIR__.'/my_file.txt'
 $searcher = new TextSearcher();
@@ -47,7 +47,7 @@ $searcher->closeFile();
 ```
 
 
-## System requires
+## Requirements
 php 7.2
 
 php extensions:
