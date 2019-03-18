@@ -72,8 +72,6 @@ class TextSearcher
         throw new \Exception('method not implemented'); // TODO
     }
 
-    // TODO closeFile
-
     public function search(string $query)
     {
         return $this->module->search($this->source, $query);
